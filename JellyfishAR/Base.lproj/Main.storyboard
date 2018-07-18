@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgA-VE-xXJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjM-R3-TP3">
                                 <rect key="frame" x="16" y="547" width="102" height="100"/>
@@ -43,22 +43,44 @@
                                     <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nmf-OA-Zwj"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-pS-gBX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-Mo-7PF">
+                                        <rect key="frame" x="138" y="10" width="99.5" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uOH-Mo-7PF" firstAttribute="centerX" secondItem="Zrf-pS-gBX" secondAttribute="centerX" id="WpT-Tz-YXV"/>
+                                    <constraint firstAttribute="height" constant="50" id="d2E-ZG-TfT"/>
+                                    <constraint firstItem="uOH-Mo-7PF" firstAttribute="centerY" secondItem="Zrf-pS-gBX" secondAttribute="centerY" id="yFb-Va-KOg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JxG-We-Zmf" secondAttribute="bottom" constant="20" id="2Ys-HE-2MC"/>
-                            <constraint firstItem="LgA-VE-xXJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Nol-ex-nlN"/>
+                            <constraint firstItem="Zrf-pS-gBX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Li-4U-DuT"/>
+                            <constraint firstItem="LgA-VE-xXJ" firstAttribute="top" secondItem="Zrf-pS-gBX" secondAttribute="bottom" id="FNE-PK-UqE"/>
+                            <constraint firstItem="Zrf-pS-gBX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Nc1-Zl-7fT"/>
                             <constraint firstItem="tjM-R3-TP3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z11-Pq-Y8u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JxG-We-Zmf" secondAttribute="trailing" constant="16" id="elo-HN-SZ0"/>
                             <constraint firstItem="LgA-VE-xXJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gzj-cT-o76"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tjM-R3-TP3" secondAttribute="bottom" constant="20" id="i6f-aa-pZL"/>
                             <constraint firstItem="LgA-VE-xXJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nUi-8O-q9v"/>
+                            <constraint firstItem="Zrf-pS-gBX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="r9F-7f-KvW"/>
                             <constraint firstItem="LgA-VE-xXJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xcs-E7-KeM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="play" destination="tjM-R3-TP3" id="hXe-hS-L2P"/>
                         <outlet property="sceneView" destination="LgA-VE-xXJ" id="ROq-Kx-yXV"/>
+                        <outlet property="timerLabel" destination="uOH-Mo-7PF" id="XEv-dy-2L9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

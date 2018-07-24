@@ -24,11 +24,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.sceneView.debugOptions = [
-            ARSCNDebugOptions.showFeaturePoints,
-            ARSCNDebugOptions.showWorldOrigin,
-        ]
-        
         self.sceneView.session.run(configuration)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -48,21 +43,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reset(_ sender: Any) {
+        // Reset UI
         self.timer.stop()
         self.resetTimer()
         self.play.isEnabled = true
         self.timerLabel.text = "Let's Play!"
         
+        // Remove child nodes from scene
         sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
             node.removeFromParentNode()
         }
         
+        // Reset session
         self.sceneView.session.pause()
         self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     func addNode() {
-        let jellyfishScene = SCNScene(named: "art.scnassets/Jellyfish.scn")
+        let jellyfishScene = SCNScene(named: "Models.scnassets/Jellyfish.scn")
         let jellyfishNode = jellyfishScene?.rootNode.childNode(withName: "Jellyfish", recursively: false)
         
         jellyfishNode?.position = SCNVector3(randomNumbers(min: -1, max: 1), randomNumbers(min: -0.5, max: 0.5), randomNumbers(min: -1, max: 1))
@@ -75,33 +73,33 @@ class ViewController: UIViewController {
         let touchCoordinates = sender.location(in: sceneViewTappedOn)
         let hitTest = sceneViewTappedOn.hitTest(touchCoordinates)
         
-        // check if node was touched
-        if hitTest.isEmpty {
-            print("Didn't touch anything")
-        } else {
-            let result = hitTest.first!
-            let node = result.node
-            
-            if countdown > 0 {
-                // only animate if animation not currently in progress
-                if node.animationKeys.isEmpty {
-                    SCNTransaction.begin()
-                    animateNode(node: node)
-                    // scene transaction ensures this code is not executed until after animation is complete
-                    SCNTransaction.completionBlock = {
-                        // removes the jellyfish we tapped on
-                        node.removeFromParentNode()
-                        // adds a new jellyfish at a random position
-                        self.addNode()
-                        self.resetTimer()
-                    }
-                    SCNTransaction.commit()
-                }
-            }
+        // check if node was touched and countdown has not reached 0
+        if hitTest.isEmpty || countdown == 0 {
+            return
         }
+        
+        self.resetTimer()
+        
+        let node = hitTest.first!.node
+        
+        // only animate if animation not currently in progress
+        if !node.animationKeys.isEmpty {
+            return
+        }
+        
+        SCNTransaction.begin()
+        attachAnimation(to: node)
+        // scene transaction ensures this code is not executed until after animation is complete
+        SCNTransaction.completionBlock = {
+            // removes the jellyfish we tapped on
+            node.removeFromParentNode()
+            // adds a new jellyfish at a random position
+            self.addNode()
+        }
+        SCNTransaction.commit()
     }
     
-    func animateNode(node: SCNNode) {
+    func attachAnimation(to node: SCNNode) {
         let spin = CABasicAnimation(keyPath: "position")
         spin.fromValue = node.presentation.position
         spin.toValue = SCNVector3(node.presentation.position.x - 0.2, node.presentation.position.y - 0.2, node.presentation.position.z - 0.2)

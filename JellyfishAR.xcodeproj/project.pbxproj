@@ -14,7 +14,7 @@
 		A2690F5720FEBD2100DAA38F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2690F5620FEBD2100DAA38F /* Assets.xcassets */; };
 		A2690F5A20FEBD2100DAA38F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2690F5820FEBD2100DAA38F /* LaunchScreen.storyboard */; };
 		A2690F6420FECCB900DAA38F /* Textures in Resources */ = {isa = PBXBuildFile; fileRef = A2690F6320FECCB900DAA38F /* Textures */; };
-		A2690F6720FECD6300DAA38F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A2690F6620FECD6300DAA38F /* art.scnassets */; };
+		A2690F6720FECD6300DAA38F /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A2690F6620FECD6300DAA38F /* Models.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		A2690F5920FEBD2100DAA38F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2690F5B20FEBD2100DAA38F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2690F6320FECCB900DAA38F /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Textures; sourceTree = "<group>"; };
-		A2690F6620FECD6300DAA38F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		A2690F6620FECD6300DAA38F /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		C707D13A655BFBCA9473C954 /* Pods-JellyfishAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JellyfishAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JellyfishAR/Pods-JellyfishAR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +89,7 @@
 				A2690F5620FEBD2100DAA38F /* Assets.xcassets */,
 				A2690F5820FEBD2100DAA38F /* LaunchScreen.storyboard */,
 				A2690F5B20FEBD2100DAA38F /* Info.plist */,
-				A2690F6620FECD6300DAA38F /* art.scnassets */,
+				A2690F6620FECD6300DAA38F /* Models.scnassets */,
 			);
 			path = JellyfishAR;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			files = (
 				A2690F5A20FEBD2100DAA38F /* LaunchScreen.storyboard in Resources */,
 				A2690F5720FEBD2100DAA38F /* Assets.xcassets in Resources */,
-				A2690F6720FECD6300DAA38F /* art.scnassets in Resources */,
+				A2690F6720FECD6300DAA38F /* Models.scnassets in Resources */,
 				A2690F6420FECCB900DAA38F /* Textures in Resources */,
 				A2690F5520FEBD2000DAA38F /* Main.storyboard in Resources */,
 			);
